@@ -17,7 +17,10 @@ cabal-version:       >=1.10
 
 library
   exposed-modules:
-    Data.Derivation.SecondOrder
+    Data.Derivation.Sentential
+    -- Data.Derivation.Simple
+    -- Data.Derivation.Predicate
+    -- Data.Derivation.SecondOrder
     -- Data.Derivation.Contextual
     -- Data.Derivation.Natural
     -- Data.Derivation.Gradual
@@ -31,7 +34,8 @@ library
   build-depends:
     base >=4.8 && <4.9,
     containers,
-    type-combinators
+    type-combinators >=0.2,
+    type-combinators-quote
   hs-source-dirs:      src
   default-language:    Haskell2010
   ghc-options: -Wall -fno-warn-unticked-promoted-constructors

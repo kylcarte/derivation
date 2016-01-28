@@ -18,12 +18,10 @@ import Data.Derivation
 import Prelude hiding (init)
 
 class Eval (rule :: [([k],k)] -> [k] -> k -> *) (val :: k -> *) | rule -> val, val -> rule where
-  eval :: Derivation rule gam a -> Prod val gam -> val a
+  eval :: Deriv rule gam a -> Prod val gam -> val a
 
-eval_ :: Eval rule val => Derivation rule Ø a -> val a
+eval_ :: Eval rule val => Deriv rule Ø a -> val a
 eval_ = flip eval Ø
-
--- }}}
 
 data Steps :: (k -> k -> *) -> k -> k -> * where
   Done :: Steps step a a
